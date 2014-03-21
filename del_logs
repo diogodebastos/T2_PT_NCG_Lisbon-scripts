@@ -1,0 +1,8 @@
+echo "=== Start time: `date` ==="
+# echo "--> Removing Prod_T2_PT_NCG_Lisbon logs"
+# cd /home/phedex/state/Prod_T2_PT_NCG_Lisbon/download-remove;
+# find . -name '*log' | xargs rm;
+
+echo "--> Removing Debug_T2_PT_NCG_Lisbon logs"
+cd /home/phedex/state/Debug_T2_PT_NCG_Lisbon/download-remove;
+find . -name '*log' | xargs rm;

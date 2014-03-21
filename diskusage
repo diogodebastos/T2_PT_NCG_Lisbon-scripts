@@ -1,0 +1,11 @@
+echo "Last verification on /lustre/ncg.ingrid.pt/cmst3/store/user: `date`"
+cd /lustre/ncg.ingrid.pt/cmst3/store/user
+du -sh *;
+
+echo
+echo "Last verification on /lustre/ncg.ingrid.pt/cmslocal: `date`"
+cd /lustre/ncg.ingrid.pt/cmslocal
+du -sh *;
+
+echo
+echo "===end===";

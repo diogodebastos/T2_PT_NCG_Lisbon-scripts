@@ -1,0 +1,53 @@
+#!/bin/bash
+
+size_to_delete=0;
+min_max=90;
+size=0;
+srmpath=srm://srm01.ncg.ingrid.pt:8443/srm/managerv2?SFN=;
+
+PHEDEX_BASE=/home/phedex;
+PHEDEX_VERSION=3_2_0;
+PHEDEX_OS_VERSION=slc4_ia32_gcc345;
+PHEDEX_X509_USER_PROXY=/opt/vobox/cms/proxy_repository/+2fC+3dPT+2fO+3dLIPCA+2fO+3dLIP+2fOU+3dLisboa+2fCN+3dNuno+20Miguel+20Girao+20de+20Almeida+2fCN+3dproxy-voms+20cms;
+PHEDEX_GLITE_ENV=/etc/profile.d/grid-env.sh;
+
+
+source $PHEDEX_GLITE_ENV;
+
+unset X509_USER_KEY X509_USER_CERT;
+export X509_USER_PROXY=${PHEDEX_X509_USER_PROXY};
+
+MYPROXY_SERVER=myproxy-fts.cern.ch;
+export MYPROXY_SERVER;
+
+
+#folder="/lustre/ncg.ingrid.pt/cms/store/tmp/PhEDEx_LoadTest07"
+
+folderA="/lustre/ncg.ingrid.pt/data2/cms/store/tmp/PhEDEx_LoadTest07"
+folderB="/lustre/ncg.ingrid.pt/cms/store/tmp/PhEDEx_LoadTest07"
+
+#folder="/cms/store/PhEDEx_LoadTest07"
+
+for dir in `find $folderA -name 'LoadTest07_Debug_*' -type d -maxdepth 1`; do
+
+  [ -n "`echo $dir | grep -E -e 'LoadTest07_Debug_NCG_Lisbon$'`" ] && continue
+
+  for path in `find $dir -mmin +$min_max -name "*LoadTest07_*_*_*_*"`; do
+
+    file=`basename $path`
+    echo "FILE is $file";
+
+    folder=`echo $path | sed "s/\\/$file$//"`
+    echo "FOLDER is $folder";
+
+    size=ls -l "$file" 2>/dev/null | awk '{print $5}'
+
+    echo "size is $size";
+
+    size_to_delete=`expr $size_to_delete + $size`;
+    echo  " Removing file: $path with $size bytes";
+    srmrm  $srmpath/$path;
+
+  done
+done
+

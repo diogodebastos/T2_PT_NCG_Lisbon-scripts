@@ -1,0 +1,29 @@
+#!/bin/bash
+
+size_to_delete=0;
+size=0;
+
+file=/home/phedex/scripts/orphanFiles.txt
+file_list=`more $file`;
+
+total_size=0;
+
+for file_i in $file_list; do
+
+  file_to_delete="/lustre/ncg.ingrid.pt/data2/cms/$file_i";
+  file_to_delete_srm="srm://srm01.ncg.ingrid.pt:8443/cms/$file_i";
+
+
+  echo " file to delete : $file_to_delete_srm";
+
+  size=`ls -l "$file_to_delete" 2>/dev/null | awk '{print $5}'`;
+  srmrm $file_to_delete_srm;
+
+  #echo "size is $size";
+
+  total_size=`expr $total_size + $size `;
+
+done;
+
+  echo  "Total size to be deleted: $total_size bytes";
+
