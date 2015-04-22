@@ -16,9 +16,9 @@ export X509_USER_PROXY=${PHEDEX_X509_USER_PROXY};
 
 cd /home/phedex/;
 
-#PHEDEX/Utilities/Master -config SITECONF/T2_PT_NCG_Lisbon/PhEDEx/Config.Deb stop all
+PHEDEX/Utilities/Master -config SITECONF/T2_PT_NCG_Lisbon/PhEDEx/Config.Deb stop all
 PHEDEX/Utilities/Master -config SITECONF/T2_PT_NCG_Lisbon/PhEDEx/Config.Prod stop all
 sleep 60;
-#PHEDEX/Utilities/Master -config SITECONF/T2_PT_NCG_Lisbon/PhEDEx/Config.Deb start all
+PHEDEX/Utilities/Master -config SITECONF/T2_PT_NCG_Lisbon/PhEDEx/Config.Deb start all
 PHEDEX/Utilities/Master -config SITECONF/T2_PT_NCG_Lisbon/PhEDEx/Config.Prod start all
 
