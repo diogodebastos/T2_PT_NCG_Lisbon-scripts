@@ -1,5 +1,13 @@
 #!/bin/bash
 
+# Run me with uploadStorageDump.sh [action] [filename]
+
+# Action ("check" and then "upload")
+ACTION="${1}"
+
+# Filename to check and upload
+FILENAME="${2}"
+
 # install test suite
 # cd /home/phedex/validation/; git clone https://github.com/dmwm/PHEDEX.git cd ../
 
@@ -18,10 +26,18 @@ grid-proxy-init -rfc -bits 1024
 
 # dump-file parsing and aggregation:
 #spacecount <interface> --dump <dump file>
-spacecount posix --dump /home/cms/cmssgm/DumpFile.2015-04-22.txt
 
-# upload the storage record
-spacecount posix --dump /home/cms/cmssgm/DumpFile.2015-04-22.txt --node T2_PT_NCG_Lisbon
+if [ "${ACTION}" = "check" ]; then
+	spacecount posix --dump ${FILENAME}
+	echo "---------------------------------"
+	echo "If the only error is \"The \'node\' parameter (undef) to (eval) was an \'undef\'\", then it is OK and you can upload (LoL, by the way)"
 
-# update entry at in https://twiki.cern.ch/twiki/bin/view/CMSPublic/SpaceMonSiteAdmin#Step_2_Validate_storage_dump
+elif [ "${ACTION}" = "upload" ]; then
+	# upload the storage record
+	spacecount posix --dump ${FILENAME} -node T2_PT_NCG_Lisbon
+	echo "Now please update the entry at https://twiki.cern.ch/twiki/bin/view/CMSPublic/SpaceMonSiteAdmin#Step_2_Validate_storage_dump"
+	echo "Also, please check the status at http://dashb-ssb.cern.ch/dashboard/request.py/siteview#currentView=test&highlight=true"
+	echo "(the dashboard might take a few hours to pick up the update)" 
+fi
 
+exit 0
