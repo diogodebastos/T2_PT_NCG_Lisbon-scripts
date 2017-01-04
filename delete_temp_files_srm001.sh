@@ -7,7 +7,7 @@ size=0;
 #srmpath=srm://srm01.ncg.ingrid.pt:8444;
 srmpath=srm://srm01.ncg.ingrid.pt
 
-PHEDEX_X509_USER_PROXY=/var/lib/vobox/cms/proxy_repository/+2fC+3dPT+2fO+3dLIPCA+2fO+3dLIP+2fOU+3dLisboa+2fCN+3dPietro+20Vischia+2fCN+3dproxy-voms+20cms;
+PHEDEX_X509_USER_PROXY=/var/lib/vobox/cms/proxy_repository/+2fDC+3dch+2fDC+3dcern+2fOU+3dOrganic+20Units+2fOU+3dUsers+2fCN+3dcbeiraod+2fCN+3d719371+2fCN+3dCristovao+20Beirao+20Da+20Cruz+20E+20Silva+2fCN+3dproxy-voms+20cms;
 
 PHEDEX_GLITE_ENV=/etc/profile.d/grid-env.sh;
 source $PHEDEX_GLITE_ENV;
