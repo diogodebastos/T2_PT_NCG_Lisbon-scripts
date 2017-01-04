@@ -19,13 +19,13 @@ MYPROXY_SERVER=myproxy-fts.cern.ch;
 export MYPROXY_SERVER;
 
 for dir in temp/prod temp/user unmerged; do
-    folder="/lustre/ncg.ingrid.pt/data2/cms/store/$dir"
+    folder="/gstore/t2cms/cms/store/$dir"
     echo "Processing $folder"
     if [ -d $folder ]; then
        find $folder -type f -mtime +$days -print > /tmp/list.tmp
        while read -r line; do
           size=`stat -c %s $line 2>/dev/null`
-          srmfile=`echo $line | sed "s:/lustre/ncg.ingrid.pt/data2/:/:"`
+          srmfile=`echo $line | sed "s:/gstore/t2cms/:/:"`
           surl="${srmpath}${srmfile}"
           echo "`date +%F,%T`,$line,$size,${surl}"
           lcg-del -vvv --vo cms -l ${surl}
