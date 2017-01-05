@@ -1,11 +1,9 @@
-echo "Last verification on /lustre/ncg.ingrid.pt/cmst3/store/user: `date`"
-# cd /lustre/ncg.ingrid.pt/cmst3/store/user
+echo "Last verification on /gstore/t3cms/store/user: `date`"
 cd /gstore/t3cms/store/user/
 du -sh *;
 
 echo
-echo "Last verification on /lustre/ncg.ingrid.pt/cmslocal: `date`"
-# cd /lustre/ncg.ingrid.pt/cmslocal
+echo "Last verification on /lstore/cms: `date`"
 cd /lstore/cms
 du -sh *;
 
