@@ -1,0 +1,12 @@
+/home/phedex/logs/*_T2_PT_NCG_Lisbon/* {
+  weekly
+  missingok
+  rotate 5
+  olddir old
+  compress
+  delaycompress
+  sharedscripts
+  postrotate
+    /home/phedex/scripts/restart_agents.sh
+  endscript
+}
