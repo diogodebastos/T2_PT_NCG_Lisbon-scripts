@@ -1,0 +1,8 @@
+/home/phedex/delete_logs/* {
+  weekly
+  missingok
+  rotate 5
+  olddir old
+  compress
+  delaycompress
+}

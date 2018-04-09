@@ -16,6 +16,7 @@ PERLIB=/home/phedex/PHEDEX/perl_lib
 00 */4 * * * /home/phedex/scripts/delete_load_files_srm001.sh >> /home/phedex/delete_logs/delete_load_files_srm001.txt 2>&1
 00 3 1,8,15,22 * * /home/phedex/scripts/delete_temp_files_srm001.sh >> /home/phedex/delete_logs/delete_temp_files_srm001.txt 2>&1
 
+50 23 * * 0 /usr/sbin/logrotate -s /home/phedex/scripts/delete.logrotate.status /home/phedex/scripts/delete.logrotate
 05 17 * * 0 /usr/sbin/logrotate -s /home/phedex/scripts/phedex.logrotate.status /home/phedex/scripts/phedex.logrotate
 
 00 17 * * * /home/phedex/PHEDEX/Utilities/InspectPhedexLog -es "-1 days" /home/phedex/logs/Debug_T2_PT_NCG_Lisbon/download-*
