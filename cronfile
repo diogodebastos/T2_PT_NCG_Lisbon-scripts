@@ -12,9 +12,9 @@ PERLIB=/home/phedex/PHEDEX/perl_lib
 # Note: The crontab file must end with a line feed.
 
 40 16 * * * sh /home/phedex/scripts/diskusage > /home/phedex/diskusage.txt 2>&1
-05 17 * * * sh /home/phedex/scripts/del_logs >> /home/phedex/del_logs.txt 2>&1
-00 */4 * * * /home/phedex/scripts/delete_load_files_srm001.sh >> /home/phedex/delete_load_files_srm001.txt 2>&1
-00 3 1,8,15,22 * * /home/phedex/scripts/delete_temp_files_srm001.sh >> /home/phedex/delete_temp_files_srm001.txt 2>&1
+05 17 * * * sh /home/phedex/scripts/del_logs >> /home/phedex/delete_logs/del_logs.txt 2>&1
+00 */4 * * * /home/phedex/scripts/delete_load_files_srm001.sh >> /home/phedex/delete_logs/delete_load_files_srm001.txt 2>&1
+00 3 1,8,15,22 * * /home/phedex/scripts/delete_temp_files_srm001.sh >> /home/phedex/delete_logs/delete_temp_files_srm001.txt 2>&1
 #00 */4 * * * /home/phedex/scripts/restart_agents.sh
 
 05 17 * * 0 /usr/sbin/logrotate -s /home/phedex/scripts/phedex.logrotate.status /home/phedex/scripts/phedex.logrotate
