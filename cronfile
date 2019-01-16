@@ -1,7 +1,7 @@
 shell=/bin/bash
 PATH=/sbin:/bin:/usr/sbin:/usr/bin:/usr/local/bin:/usr/bin/X11:/cern/pro/bin:/usr/kerberos/bin:/opt/globus/bin:/opt/globus/sbin:/opt/edg/bin:/usr/local/root/pro/bin:/opt/d-cache/dcap/bin:.:/opt/d-cache//srm/bin:/opt/d-cache//dcap/bin:/opt/glite/bin:/opt/glite/externals/bin:/opt/gpt/sbin:/opt/d-cache/srm/bin:/opt/edg/sbin
 
-MAILTO="pietro.vischia@gmail.com,crisxed@gmail.com"
+MAILTO="pietro.vischia@gmail.com,crisxed@gmail.com,diogodebastos18@gmail.com"
 HOME=/home/phedex
 
 #PERL5LIB=/opt/lcg/lib64/perl:/usr/lib64/perl5/site_perl/5.8.8/x86_64-linux-thread-multi:/usr/lib/perl5/site_perl/5.8.8:/usr/lib64/perl5/vendor_perl/5.8.8/x86_64-linux-thread-multi:/usr/lib/perl5/vendor_perl/5.8.8:/opt/gpt/lib/perl:/home/phedex/sw/slc5_amd64_gcc434/cms/PHEDEX/PHEDEX_4_0_0/perl_lib/
